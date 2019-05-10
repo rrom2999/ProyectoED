@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "Dividir";
+}
+<html>
+<head>
+    <title>Diseño</title>
+</head>
+<body>
+    <script>
+
+    </script>
+    <style>
+        #Comandos {
+            width: 80%;
+            height: 60%;
+            background-color: none;
+            position: absolute;
+            top: 0%;
+            left: 20%;
+            border: 1px solid #000;
+        }
+
+        #txt {
+            height: 4%;
+            width: 100%;
+            position: fixed;
+            top: 10%;
+            left: 45%
+        }
+
+        #Tablas {
+            width: 20%;
+            height: 100%;
+            background-color: none;
+            position: absolute;
+            top: 0%;
+            left: 0%;
+            border: 1px solid #000;
+        }
+
+        #Grid {
+            width: 80%;
+            height: 40%;
+            background-color: none;
+            position: absolute;
+            top: 60%;
+            left: 20%;
+            border: 1px solid #000;
+        }
+
+        table {
+            width: 100%;
+            border: 1px solid #000;
+        }
+
+        th, td {
+            width: 8%;
+            text-align: left;
+            vertical-align: top;
+            border: 1px solid #000;
+        }
+    </style>
+    <div id="Tablas">
+
+    </div>
+    <div id="Comandos">
+        <form action="/MiniSQL/Dividir" method="post">
+            <br />
+            <br /><br /><br /><br /><input type="text" name="Codigo" placeholder="Comando" value="" id="txt" />
+            <center>   <input type="submit" value="Efectuar" class="bt" /></center>
+        </form>
+    </div>
+
+    <div id="Grid">
+        <table>
+            <thead>
+                <tr>
+                    @if (ViewBag.Columnas == null)
+                    {
+                        <td></td>
+                    }
+                    else
+                    {
+
+                        foreach (var columna in ViewBag.Columnas)
+                        {
+                            <td>@columna </td>
+                        }
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                    @if (ViewBag.Insertado != null)
+                    {
+                        foreach (var Nuevo in ViewBag.Insertado)
+                        { 
+                            <tr> 
+                            @foreach (var Dato in Nuevo)
+                            {
+
+                                <td>@Dato </td>
+                            }
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
+
+

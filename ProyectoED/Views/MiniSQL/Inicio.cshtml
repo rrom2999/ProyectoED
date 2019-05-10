@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Inicio";
+}
+<html>
+<head>
+    <title>Diseño</title>
+</head>
+<body>
+    <script>
+
+    </script>
+    <style>
+        #Comandos {
+            width: 80%;
+            height: 60%;
+            background-color: none;
+            position: absolute;
+            top: 0%;
+            left: 20%;
+            border: 1px solid #000;
+        }
+
+        #txt {
+            height: 4%;
+            width: 100%;
+            position: fixed;
+            top: 10%;
+            left: 45%
+        }
+    </style>
+    <div id="Comandos">
+        <form action="/MiniSQL/Dividir" method="post">
+            <br />
+            <br /><br /><br /><br /><input type="text" name="Codigo" placeholder="Comando" value="" id="txt" />
+            <center>   <input type="submit" value="Efectuar" class="bt" /></center>
+        </form>
+    </div>
+</body>
+</html>
